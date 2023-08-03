@@ -1,0 +1,5 @@
+<h1>New Dispatch</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.dispatch_path(@conn, :create)) %>
+
+<span><%= link "Back", to: Routes.dispatch_path(@conn, :index) %></span>

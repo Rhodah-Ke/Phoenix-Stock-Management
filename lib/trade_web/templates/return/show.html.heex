@@ -1,0 +1,23 @@
+<h1>Show Return</h1>
+
+<ul>
+
+  <li>
+    <strong>Quantity:</strong>
+    <%= @return.quantity %>
+  </li>
+
+  <li>
+    <strong>Returning reason:</strong>
+    <%= @return.returning_reason %>
+  </li>
+
+  <li>
+    <strong>Return date:</strong>
+    <%= @return.return_date %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.return_path(@conn, :edit, @return) %></span> |
+<span><%= link "Back", to: Routes.return_path(@conn, :index) %></span>

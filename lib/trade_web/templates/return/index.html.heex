@@ -1,0 +1,35 @@
+<h1>Listing Returns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Return ID</th>
+      <th>Receive Id</th>
+      <th>Return Quantity</th>
+      <th>Returning reason</th>
+      <th>Return date</th>
+      <th>Actions</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for return <- @returns do %>
+    <tr>
+      <td><%= return.id %></td>
+      <td><%= return.receive.id %></td>
+      <td><%= return.quantity %></td>
+      <td><%= return.returning_reason %></td>
+      <td><%= return.return_date %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.return_path(@conn, :show, return) %></span>
+        <span><%= link "Edit", to: Routes.return_path(@conn, :edit, return) %></span>
+        <span><%= link "Delete", to: Routes.return_path(@conn, :delete, return), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Return", to: Routes.return_path(@conn, :new) %></span>

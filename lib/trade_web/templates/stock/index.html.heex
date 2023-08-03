@@ -1,0 +1,39 @@
+<h1>Listing Stocks</h1>
+
+<table>
+  <thead>
+    <tr>
+      
+      <th>Receive Id</th>
+      <th>Receive quantity</th>
+      <th>Dispatch quantity</th>
+      <th>Return quantity</th>
+      <th>Available stock</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for stock <- @stocks do %>
+    <tr>
+      <td><%= stock.id %></td>
+      <td><%= stock.quantity %></td>
+
+      <td>
+        <%= Trade.Dispatches.calculate_total_dispatches(stock.dispatches) %>
+      </td>
+
+      <td>
+        <%= Trade.Returns.calculate_total_returns(stock.returns) %>
+      </td>
+
+      <td>
+        <%= stock.quantity - Trade.Dispatches.calculate_total_dispatches(stock.dispatches) +  Trade.Returns.calculate_total_returns(stock.returns) %>
+      </td>
+    
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Stock", to: Routes.stock_path(@conn, :new) %></span>

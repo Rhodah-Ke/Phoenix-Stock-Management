@@ -1,0 +1,45 @@
+<h1>Listing Receives</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Receive ID</th>
+      <th>GTIN</th>
+      <th>Brand name</th>
+      <th>Product description</th>
+      <th>Net weight</th>
+      <th>Unit of measure</th>
+      <th>GPC</th>
+      <th>Price per item</th>
+      <th>Quantity</th>
+      <th>Receiving date</th>
+      <th>Actions</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for receive <- @receives do %>
+    <tr>
+      <td><%= receive.id %></td>
+      <td><%= receive.gtin %></td>
+      <td><%= receive.brand_name %></td>
+      <td><%= receive.product_description %></td>
+      <td><%= receive.net_weight %></td>
+      <td><%= receive.unit_of_measure %></td>
+      <td><%= receive.global_product_code %></td>
+      <td><%= receive.price_per_item %></td>
+      <td><%= receive.quantity %></td>
+      <td><%= receive.receiving_date %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.receive_path(@conn, :show, receive) %></span>
+        <span><%= link "Edit", to: Routes.receive_path(@conn, :edit, receive) %></span>
+        <span><%= link "Delete", to: Routes.receive_path(@conn, :delete, receive), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Receive", to: Routes.receive_path(@conn, :new) %></span>

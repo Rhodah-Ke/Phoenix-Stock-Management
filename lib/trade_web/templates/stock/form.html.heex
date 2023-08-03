@@ -1,0 +1,31 @@
+<.form let={f} for={@changeset} action={@action}>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <%= label f, :receive_id %>
+  <%= select f, :receive_id, @receives, prompt: "Select a Receive Id" %>
+  <%= error_tag f, :receive_id %>
+
+  <%= label f, :receive_quantity %>
+  <%= number_input f, :receive_quantity %>
+  <%= error_tag f, :receive_quantity %>
+
+  <%= label f, :dispatch_quantity %>
+  <%= number_input f, :dispatch_quantity %>
+  <%= error_tag f, :dispatch_quantity %>
+
+  <%= label f, :return_quantity %>
+  <%= number_input f, :return_quantity %>
+  <%= error_tag f, :return_quantity %>
+
+  <%= label f, :available_stock %>
+  <%= number_input f, :available_stock %>
+  <%= error_tag f, :available_stock %>
+
+  <div>
+    <%= submit "Save" %>
+  </div>
+</.form>

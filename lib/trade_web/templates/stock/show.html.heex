@@ -1,0 +1,28 @@
+<h1>Show Stock</h1>
+
+<ul>
+
+  <li>
+    <strong>Receive quantity:</strong>
+    <%= @stock.receive_quantity %>
+  </li>
+
+  <li>
+    <strong>Dispatch quantity:</strong>
+    <%= @stock.dispatch_quantity %>
+  </li>
+
+  <li>
+    <strong>Return quantity:</strong>
+    <%= @stock.return_quantity %>
+  </li>
+
+  <li>
+    <strong>Available stock:</strong>
+    <%= @stock.available_stock %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.stock_path(@conn, :edit, @stock) %></span> |
+<span><%= link "Back", to: Routes.stock_path(@conn, :index) %></span>

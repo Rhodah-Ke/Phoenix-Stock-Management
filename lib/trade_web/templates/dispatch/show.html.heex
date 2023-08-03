@@ -1,0 +1,33 @@
+<h1>Show Dispatch</h1>
+
+<ul>
+
+  <li>
+    <strong>Quantity:</strong>
+    <%= @dispatch.quantity %>
+  </li>
+  
+  <li>
+    <strong>Consumer name:</strong>
+    <%= @dispatch.consumer_name %>
+  </li>
+
+  <li>
+    <strong>Consumer phone:</strong>
+    <%= @dispatch.consumer_phone %>
+  </li>
+
+  <li>
+    <strong>Consumer location:</strong>
+    <%= @dispatch.consumer_location %>
+  </li>
+
+  <li>
+    <strong>Dispatch date:</strong>
+    <%= @dispatch.dispatch_date %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.dispatch_path(@conn, :edit, @dispatch) %></span> |
+<span><%= link "Back", to: Routes.dispatch_path(@conn, :index) %></span>

@@ -1,0 +1,55 @@
+<h1>Show Receive</h1>
+
+<ul>
+
+  <li>
+    <strong>Gtin:</strong>
+    <%= @receive.gtin %>
+  </li>
+
+  <li>
+    <strong>Brand name:</strong>
+    <%= @receive.brand_name %>
+  </li>
+
+  <li>
+    <strong>Product description:</strong>
+    <%= @receive.product_description %>
+  </li>
+
+  <li>
+    <strong>Net weight:</strong>
+    <%= @receive.net_weight %>
+  </li>
+
+  <li>
+    <strong>Unit of measure:</strong>
+    <%= @receive.unit_of_measure %>
+  </li>
+
+  <li>
+    <strong>Global product code:</strong>
+    <%= @receive.global_product_code %>
+  </li>
+
+  <li>
+    <strong>Price per item:</strong>
+    <%= @receive.price_per_item %>
+  </li>
+
+  <li>
+    <strong>Quantity:</strong>
+    <%= @receive.quantity %>
+  </li>
+
+  <li>
+    <strong>Receiving date:</strong>
+    <%= @receive.receiving_date %>
+  </li>
+
+
+
+</ul>
+
+<span><%= link "Edit", to: Routes.receive_path(@conn, :edit, @receive) %></span> |
+<span><%= link "Back", to: Routes.receive_path(@conn, :index) %></span>

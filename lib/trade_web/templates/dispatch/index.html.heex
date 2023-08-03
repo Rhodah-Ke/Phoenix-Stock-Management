@@ -1,0 +1,41 @@
+<h1>Listing Dispatches</h1>
+
+<table>
+  <thead>
+
+    <tr>
+      <th>Dispatch Id</th>
+      <th>Receive Id</th>
+      <th>Quantity</th>
+      <th>Consumer name</th>
+      <th>Consumer phone</th>
+      <th>Consumer location</th>
+      <th>Dispatch date</th>
+      <th>Actions</th>
+    </tr>
+
+  </thead>
+
+  <tbody>
+<%= for dispatch <- @dispatches do %>
+    <tr>
+    
+      <td><%= dispatch.id %></td>
+      <td><%= dispatch.receive.id %></td>
+      <td><%= dispatch.quantity %></td>
+      <td><%= dispatch.consumer_name %></td>
+      <td><%= dispatch.consumer_phone %></td>
+      <td><%= dispatch.consumer_location %></td>
+      <td><%= dispatch.dispatch_date %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.dispatch_path(@conn, :show, dispatch) %></span>
+        <span><%= link "Edit", to: Routes.dispatch_path(@conn, :edit, dispatch) %></span>
+        <span><%= link "Delete", to: Routes.dispatch_path(@conn, :delete, dispatch), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Dispatch", to: Routes.dispatch_path(@conn, :new) %></span>
